@@ -1,0 +1,94 @@
+$bgcolor: #F9B44A
+$font-plot: Helvetica
+$font-title: 'Open Sans'
+
+$rate-font-color: #8D989D
+$rate-font: Courier
+$rate-font-size: 14px
+
+$movie-duration-font: Arial
+$movie-duration-font-size: 14px
+$movie-duration-font-color: #303436
+
+$panel-font-button: Helvetica
+$panel-font-button-size: 16px
+$panel-font-button-color: #FFFFFF
+$panel-font-button-align: center
+
+$panel-button-radius: 5px
+
+.primary
+  background-color: $bgcolor
+
+.panel-button
+  font-family: $panel-font-button
+  font-size: $panel-font-button-size
+  color: $panel-font-button-color
+  text-align: $panel-font-button-align
+  border-radius: $panel-button-radius
+  border: none
+  width: 193px
+  height: 40px
+  flex: 1
+
+
+p
+  font-family: $font-plot
+  font-size: $panel-font-button-size
+
+.poster
+  width: 140px
+  height: 208px
+  border-radius: $panel-button-radius
+
+.title
+  font-family: $font-title
+  font-size: 25px
+
+.panel
+  display: flex
+  flex-flow: row nowrap
+
+.container
+  height: 240px
+  width: 696px
+
+.left-side
+  padding: 10px
+
+.right-side
+  padding: 10px
+
+.rate
+  color: $rate-font-color
+  border: 1px solid $rate-font-color
+  border-radius: $panel-button-radius
+  padding: 5px
+  font-family: $rate-font
+  font-size: $rate-font-size
+
+.movie-duration
+  font-family: $movie-duration-font
+  font-size: $movie-duration-font-size
+  color: $movie-duration-font-color
+  flex: 2
+  margin-left: 20px
+
+.released
+  color: $movie-duration-font-color
+  font-family: $font-plot
+  font-size: $rate-font-size
+  flex: 1
+  text-align: right
+
+.subtitle
+  display: flex
+  flex-flow: rows nowrap
+  align-items: center
+
+.spacer
+  flex: 2
+
+.footer
+  display: flex
+  flex-flow: row nowrap
