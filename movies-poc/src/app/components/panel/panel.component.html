@@ -5,15 +5,15 @@
       src="https://m.media-amazon.com/images/M/MV5BZmUwNGU2ZmItMmRiNC00MjhlLTg5YWUtODMyNzkxODYzMmZlXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg" alt="" class="poster">
     </div>
     <div class="right-side">
-      <span class="title"><strong>Batman Begins</strong></span>
+      <span class="title"><strong>{{data.title}}</strong></span>
       <hr>
       <div class="subtitle">
-        <span class="rate">PG-13</span>
-        <span class="movie-duration">140 min</span>
-        <span class="released">15 Jun 2005</span>
+        <span class="rate">{{data.rated}}</span>
+        <span class="movie-duration">{{data.length}}</span>
+        <span class="released">{{data.releasedOn}}</span>
       </div>
       <p>
-        After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from corruption.
+        {{data.plot}}
       </p>
       <div class="footer">
         <span class="spacer"></span>
