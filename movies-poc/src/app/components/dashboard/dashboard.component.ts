@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiMoviesService } from 'src/app/core/api.movies.service';
 import { MovieModel } from 'src/app/models/movie.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,12 +9,10 @@ import { MovieModel } from 'src/app/models/movie.model';
   styleUrls: ['./dashboard.component.sass'],
 })
 export class DashboardComponent implements OnInit {
-  movies: MovieModel[] = new Array();
+  movies: any;
   constructor(private api: ApiMoviesService) {}
 
   ngOnInit(): void {
-    this.api.searchByTitle('Batman').subscribe((data: any) => {
-      this.movies.push(this.api.toMovieModel(data));
-    });
+    this.movies = this.api.searchByTitle('Batman');
   }
 }

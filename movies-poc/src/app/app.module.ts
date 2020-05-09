@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { API_CONFIG } from './config';
 import { PanelComponent } from './components/panel/panel.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PanelComponent,
-    DashboardComponent
+    DashboardComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,

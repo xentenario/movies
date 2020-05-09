@@ -1,10 +1,19 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { API_CONFIG, ApiConfig } from '../config';
-import { MovieModel } from '../models/movie.model';
 import { ApiMoviesReturnModel } from '../models/api_movies_return.model';
-import { Observable, ObservableInput } from 'rxjs';
-import { switchMap, filter, concatAll } from 'rxjs/operators';
+import {
+  switchMap,
+  concatAll,
+  catchError,
+  take,
+  map,
+  filter,
+  tap,
+  toArray,
+} from 'rxjs/operators';
+import { MovieModel } from '../models/movie.model';
+import { Observable, of, concat } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,17 +27,24 @@ export class ApiMoviesService {
   searchByTitle(title: string) {
     const address = `${this.config.baseUrl}?apikey=${this.config.api_key}&s=${title}&page=${this.config.page}&type=${this.config.search_type}`;
     return this.apiClient.get<ApiMoviesReturnModel>(address).pipe(
-      switchMap((data: ApiMoviesReturnModel) => data.Search.map((item: any) => this.findOne(item.imdbID))),
-      concatAll()
+      switchMap((res: ApiMoviesReturnModel) =>
+        res.Search.map((item: MovieModel) =>
+          this.findOne(item.imdbID).pipe(
+            switchMap((data) => of(this.toMovieModel(data)))
+          )
+        )
+      ),
+      concatAll(),
+      toArray()
     );
   }
 
-  findOne(id: string, plot: string = 'short') {
+  findOne(id: string, plot: string = 'short'): Observable<MovieModel> {
     const address = `${this.config.baseUrl}?apikey=${this.config.api_key}&i=${id}&plot=${plot}`;
-    return this.apiClient.get(address);
+    return this.apiClient.get<MovieModel>(address);
   }
 
-  toMovieModel(source: any) {
+  toMovieModel(source: any): MovieModel {
     return new MovieModel(
       source.imdbID,
       source.Poster,
