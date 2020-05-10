@@ -14,12 +14,21 @@ export class ToolbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.items.map( (x: ToolbarItemModel) => x.isSelected = false );
+    this.resetSelection(null);
     console.log(this.items);
   }
 
-  onSelected(item: ToolbarItemModel){
+  onSelected(item: ToolbarItemModel): void{
     item.isSelected = !item.isSelected;
+    this.resetSelection(item);
     this.toolBarService.itemWasClicked.next(item);
+  }
+
+  resetSelection(item: ToolbarItemModel): void{
+    this.items.map( (x: ToolbarItemModel) => {
+       if ( item == null || x.label !== item.label ) {
+         x.isSelected = false;
+        }
+    });
   }
 }

@@ -17,6 +17,26 @@ $panel-font-button-align: center
 
 $panel-button-radius: 5px
 
+.panel
+  width: 696px
+  border: 1px dotted purple //#303436
+  border-radius: $panel-button-radius
+  display: flex
+  flex-flow: row nowrap
+
+.left-side
+  height: 208px
+  margin: 10px
+
+.poster
+  width: 140px
+  height: 208px//border-radius: $panel-button-radius
+
+.right-side
+  height: 208px
+  align-items: baseline
+  margin: 10px
+
 .primary
   background-color: $bgcolor
 
@@ -35,34 +55,11 @@ p
   font-family: $font-plot
   font-size: $panel-font-button-size
   border: 1px solid green
-.poster
-  width: 140px
-  height: 208px
-  border-radius: $panel-button-radius
+
 
 .title
   font-family: $font-title
   font-size: 25px
-
-.panel
-  display: flex
-  flex-flow: row nowrap
-  // align-items: center
-  justify-content: space-between
-
-.container
-  height: auto
-  width: 696px
-  border: 1px solid #303436
-  border-radius: $panel-button-radius
-  padding: 10px
-
-.left-side
-  padding: 5px
-
-.right-side
-  padding: 5px
-  align-items: baseline
 
 .rate
   color: $rate-font-color
@@ -99,3 +96,6 @@ p
   flex-flow: row nowrap
   align-items: flex-end
   border: 1px solid black
+
+
+

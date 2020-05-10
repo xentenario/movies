@@ -1,6 +1,12 @@
-<app-toolbar [items]="toolbarItems" (toolbarItemClicked)="refresh($event)"></app-toolbar>
-<div class="container">
-  <div *ngFor="let movie of movies | async | byYear: filter" class="item">
-    <app-panel [data]= "movie"></app-panel>
+<div class="wrapper">
+  <div class="container">
+    <app-toolbar
+      [items]="toolbarItems"
+      (toolbarItemClicked)="refresh($event)"
+      class="item"
+    ></app-toolbar>
+    <div *ngFor="let movie of movies | async | byYear: filter" class="item">
+      <app-panel [data]="movie"></app-panel>
+    </div>
   </div>
 </div>
