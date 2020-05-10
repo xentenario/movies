@@ -1,6 +1,7 @@
 $bgcolor: #F9B44A
 $font-plot: Helvetica
 $font-title: 'Open Sans'
+$font-title-size: 25px
 
 $rate-font-color: #8D989D
 $rate-font: Courier
@@ -19,23 +20,24 @@ $panel-button-radius: 5px
 
 .panel
   width: 696px
-  border: 1px dotted purple //#303436
+  border: 1px solid #303436
   border-radius: $panel-button-radius
   display: flex
   flex-flow: row nowrap
+  background-color: #E8EBEE
 
 .left-side
   height: 208px
-  margin: 10px
+  margin: 10px 5px 10px 10px
 
 .poster
   width: 140px
-  height: 208px//border-radius: $panel-button-radius
+  height: 208px
+  border-radius: $panel-button-radius
 
 .right-side
   height: 208px
-  align-items: baseline
-  margin: 10px
+  margin: 10px 10px 10px 5px
 
 .primary
   background-color: $bgcolor
@@ -54,12 +56,14 @@ $panel-button-radius: 5px
 p
   font-family: $font-plot
   font-size: $panel-font-button-size
-  border: 1px solid green
-
+  min-height: 56px
+  max-height: 56px
+  text-align: justify
 
 .title
   font-family: $font-title
-  font-size: 25px
+  font-size: $font-title-size
+  line-height: 25px
 
 .rate
   color: $rate-font-color
@@ -95,7 +99,6 @@ p
   display: flex
   flex-flow: row nowrap
   align-items: flex-end
-  border: 1px solid black
 
 
 

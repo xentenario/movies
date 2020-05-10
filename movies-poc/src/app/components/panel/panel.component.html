@@ -1,25 +1,23 @@
 <div class="panel">
-
-    <div class="left-side">
-      <img class="poster"
-      [src]="data.posterUrl" alt="" class="poster">
+  <div class="left-side">
+    <img class="poster" [src]="data.posterUrl" alt="" class="poster" />
+  </div>
+  <div class="right-side">
+    <span class="title"><strong>{{ data.title }}</strong></span>
+    <hr />
+    <div class="subtitle">
+      <span class="rate">{{ data.rated }}</span>
+      <span class="movie-duration">{{ data.length }}</span>
+      <span class="released">{{ data.releasedOn }}</span>
     </div>
-    <div class="right-side">
-      <span class="title"><strong>{{data.title}}</strong></span>
-      <hr>
-      <div class="subtitle">
-        <span class="rate">{{data.rated}}</span>
-        <span class="movie-duration">{{data.length}}</span>
-        <span class="released">{{data.releasedOn}}</span>
-      </div>
-      <p>
-        {{data.plot}}
-      </p>
-      <div class="footer">
-        <div class="spacer"></div>
-        <button class="panel-button primary"><strong>View on IMDB</strong></button>
-      </div>
+    <p>
+      {{ data.plot }}
+    </p>
+    <div class="footer">
+      <div class="spacer"></div>
+      <button class="panel-button primary">
+        <strong>View on IMDB</strong>
+      </button>
     </div>
-
+  </div>
 </div>
-
