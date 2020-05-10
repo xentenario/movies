@@ -1,6 +1,6 @@
 import { MovieModel } from './movie.model';
 
 export interface ApiMoviesReturnModel {
-  Response: boolean;
+  Response: string;
   Search: MovieModel[];
 }

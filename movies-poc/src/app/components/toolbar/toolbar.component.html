@@ -1,9 +1,12 @@
 <div class="container">
   <ul>
-  <li class="item">2020</li>
-  <li class="item">2010</li>
-  <li class="item">2000</li>
-  <li class="item">1990</li>
-</ul>
+    <li
+      *ngFor="let item of items"
+      class="item"
+      (click)="onSelected(item)"
+      [ngClass]="{selected: item.isSelected}"
+    >
+      {{ item.label }}
+    </li>
+  </ul>
 </div>
-

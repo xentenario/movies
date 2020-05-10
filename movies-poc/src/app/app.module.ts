@@ -7,6 +7,7 @@ import { API_CONFIG } from './config';
 import { PanelComponent } from './components/panel/panel.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { CustomFilterPipe } from './core/filters/custom-filter.pipe';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     AppComponent,
     PanelComponent,
     DashboardComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    CustomFilterPipe,
   ],
   imports: [
     BrowserModule,

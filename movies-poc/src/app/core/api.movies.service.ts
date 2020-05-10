@@ -5,11 +5,7 @@ import { ApiMoviesReturnModel } from '../models/api_movies_return.model';
 import {
   switchMap,
   concatAll,
-  catchError,
-  take,
-  map,
   filter,
-  tap,
   toArray,
 } from 'rxjs/operators';
 import { MovieModel } from '../models/movie.model';
@@ -27,9 +23,11 @@ export class ApiMoviesService {
   searchByTitle(title: string) {
     const address = `${this.config.baseUrl}?apikey=${this.config.api_key}&s=${title}&page=${this.config.page}&type=${this.config.search_type}`;
     return this.apiClient.get<ApiMoviesReturnModel>(address).pipe(
+      filter( (data: ApiMoviesReturnModel) => (data.Response === 'True')),
       switchMap((res: ApiMoviesReturnModel) =>
         res.Search.map((item: MovieModel) =>
           this.findOne(item.imdbID).pipe(
+            filter( (data: any) => data.Response === 'True'),
             switchMap((data) => of(this.toMovieModel(data)))
           )
         )
@@ -50,7 +48,7 @@ export class ApiMoviesService {
       source.Poster,
       source.Title,
       source.Rated,
-      source.Year,
+      Number(source.Year),
       source.Runtime,
       source.Released,
       source.Plot

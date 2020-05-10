@@ -34,8 +34,7 @@ $panel-button-radius: 5px
 p
   font-family: $font-plot
   font-size: $panel-font-button-size
-  margin-bottom: 30px
-
+  border: 1px solid green
 .poster
   width: 140px
   height: 208px
@@ -48,16 +47,21 @@ p
 .panel
   display: flex
   flex-flow: row nowrap
+  // align-items: center
+  justify-content: space-between
 
 .container
-  height: 240px
+  height: auto
   width: 696px
-
-.left-side
+  border: 1px solid #303436
+  border-radius: $panel-button-radius
   padding: 10px
 
+.left-side
+  padding: 5px
+
 .right-side
-  padding-top: 2px
+  padding: 5px
   align-items: baseline
 
 .rate
@@ -93,4 +97,5 @@ p
 .footer
   display: flex
   flex-flow: row nowrap
-  margin-top: 40px
+  align-items: flex-end
+  border: 1px solid black

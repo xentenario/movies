@@ -9,6 +9,6 @@ import { MovieModel } from 'src/app/models/movie.model';
 export class PanelComponent implements OnInit {
   @Input() data: MovieModel;
   ngOnInit(): void {
-    console.log(this.data);
+    //console.log(this.data);
   }
 }
